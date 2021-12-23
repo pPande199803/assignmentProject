@@ -1,0 +1,43 @@
+<div class="container"  >
+
+
+<mat-card>
+    <!-- <h1>Employee Form Details</h1> -->
+    <form #form="ngForm" (submit)="onSubmit(form)" >
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label >Enter your Name</mat-label>
+            <input matInput placeholder="name" [formControl]="name" required    [(ngModel)]="service.employeeData.name">
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your Age</mat-label>
+            <input matInput placeholder="age" [formControl]="age" required  [(ngModel)]="service.employeeData.age">
+            <!-- <sup>*</sup>Age should not be more than 18 years -->
+            <mat-error  *ngIf="age.invalid">{{getErrorMessage1()}}
+                
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your Salary</mat-label>
+            <input matInput placeholder="salary" [formControl]="salary" required  [(ngModel)]="service.employeeData.salary">
+            <mat-error *ngIf="salary.invalid">{{getErrorMessage2()}}</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <button class="button" type="submit" mat-button (submit)="onSubmit(form )" [disabled]="!form.form.valid" >Submit</button>
+    </div>
+
+   
+
+    <div style="margin-left: 70%; ">
+        <button mat-button color="primary" ><a [routerLink]="['/show']">Show Details</a></button>
+    </div>
+</form>
+</mat-card>
+</div>
